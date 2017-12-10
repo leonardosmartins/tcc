@@ -20,7 +20,8 @@ def save(topology):
 
 def createFlow(F, source, destiny, flow, flows, id):
         env = Environment(loader=FileSystemLoader(os.path.join('.', 'templates')))
-        template = env.get_template('commands-template.txt')
+        template1 = env.get_template('s1_commands-template.txt')
+        template2 = env.get_template('s5_commands-template.txt')
         arq1 = open("util/s1_commands.txt", "w")
         arq2 = open("util/s5_commands.txt", "w")
         currentSourceCapacity = F.node[source]['demand']
@@ -34,8 +35,8 @@ def createFlow(F, source, destiny, flow, flows, id):
                         currentCapacityji = F.edge[j][i]['current_capacity']
                         F.edge[i][j]['current_capacity'] = currentCapacityij-flowDict[i][j]
                         F.edge[j][i]['current_capacity'] = currentCapacityji-flowDict[i][j]
-        arq1.write(template.render(source_ip=F.node[source]['ip'], destination_ip=F.node[destiny]['ip'], first=format(F.edge[2][3]['capacity']-F.edge[2][3]['current_capacity'], '08b'), second=format(F.edge[2][4]['capacity']-F.edge[2][4]['current_capacity'], '08b'), third=format(F.edge[2][5]['capacity']-F.edge[2][5]['current_capacity'], '08b')))
-        arq2.write(template.render(source_ip=F.node[destiny]['ip'], destination_ip=F.node[source]['ip'], first=format(F.edge[2][3]['capacity']-F.edge[2][3]['current_capacity'], '08b'), second=format(F.edge[2][4]['capacity']-F.edge[2][4]['current_capacity'], '08b'), third=format(F.edge[2][5]['capacity']-F.edge[2][5]['current_capacity'], '08b')))
+        arq1.write(template1.render(source_ip=F.node[source]['ip'], destination_ip=F.node[destiny]['ip'], first=format(F.edge[2][3]['capacity']-F.edge[2][3]['current_capacity'], '08b'), second=format(F.edge[2][4]['capacity']-F.edge[2][4]['current_capacity'], '08b'), third=format(F.edge[2][5]['capacity']-F.edge[2][5]['current_capacity'], '08b')))
+        arq2.write(template2.render(source_ip=F.node[destiny]['ip'], destination_ip=F.node[source]['ip'], first=format(F.edge[2][3]['capacity']-F.edge[2][3]['current_capacity'], '08b'), second=format(F.edge[2][4]['capacity']-F.edge[2][4]['current_capacity'], '08b'), third=format(F.edge[2][5]['capacity']-F.edge[2][5]['current_capacity'], '08b')))
         flows[id] = flowDict		   
         F.node[source]['demand'] = 0
         F.node[destiny]['demand'] = 0
