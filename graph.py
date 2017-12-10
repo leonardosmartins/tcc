@@ -72,8 +72,8 @@ while True:
                 destiny=int(input('Insert destiny: '))
                 flow=int(input('Insert flow: '))
                 F, flows = createFlow(F,source,destiny,flow, flows, count)
-        	    count=count+1
-                os.system("python tools/apply_commands.py")            
+                count=count+1
+                #os.system("python tools/apply_commands.py")            
         if option == 2:
                 print("---------- DESTROYING FLOW ----------")
                 id=int(input('Insert id: '))
