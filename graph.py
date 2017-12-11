@@ -29,6 +29,7 @@ def createFlow(F, source, destiny, flow, flows, id):
         F.node[source]['demand'] = currentSourceCapacity+(-flow)
         F.node[destiny]['demand'] = currentDestinyCapacity+(flow)
         flowCost, flowDict = nx.capacity_scaling(F, capacity='current_capacity')
+        print(flowDict)
         for i in flowDict:
                 for j in flowDict[i]:
                         currentCapacityij = F.edge[i][j]['current_capacity']
@@ -45,6 +46,8 @@ def createFlow(F, source, destiny, flow, flows, id):
         return F, flows
 
 def destroyFlow(F, flows, id):
+    template = env.get_template('delete_commands-template.txt')
+    arq = open("util/delete_commands.txt", "w") 
 	if id in flows:
 		for i in flows[id]:
 			for j in flows[id][i]:
@@ -52,7 +55,9 @@ def destroyFlow(F, flows, id):
                                 currentCapacityji = F.edge[i][j]['current_capacity']
                                 F.edge[i][j]['current_capacity'] = currentCapacityij+flows[id][i][j]
                                 F.edge[j][i]['current_capacity'] = currentCapacityji+flows[id][i][j]
-		del flows[id]		
+        arq.write(template.render(handle=id))
+        arq.close()
+        del flows[id]		
 	else:
 		print("Invalid id")
 	return F, flows
@@ -74,13 +79,12 @@ while True:
                 flow=int(input('Insert flow: '))
                 F, flows = createFlow(F,source,destiny,flow, flows, count)
                 count=count+1
-                #os.system("python tools/apply_commands.py")            
+                os.system("python tools/apply_commands.py")            
         if option == 2:
                 print("---------- DESTROYING FLOW ----------")
                 id=int(input('Insert id: '))
-                arq = open("commands.txt", "w")
                 F, flows = destroyFlow(F,flows, id)
-                arq.close()
+                os.system("python tools/apply_commands-delete.py")
         if option == 3:
         	print("---------- LIST ----------")
         	listId(flows)

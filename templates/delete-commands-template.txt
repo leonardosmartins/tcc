@@ -1,0 +1,1 @@
+table_delete multi_path_compute_meta {{ handle }}
