@@ -1,0 +1,255 @@
+{
+	"directed": true,
+	"multigraph": false, 
+	"graph": {}, 
+	"nodes": 
+	[
+		{
+			"id": 0,  
+			"demand": 0, 
+			"ip": "10.0.0.10",
+			"isHost": 1,
+			"numPorts": 5
+		}, 
+		{
+			"id": 1,  
+			"demand": 0, 
+			"ip": "10.0.1.10",
+			"isHost": 1,
+			"numPorts": 5
+		}, 
+		{
+			"id": 2,  
+			"demand": 0, 
+			"ip": "127.0.0.2",
+			"isHost": 0,
+			"numPorts": 5
+		},
+		{
+			"id": 3,  
+			"demand": 0, 
+			"ip": "127.0.0.3",
+			"isHost": 0,
+			"numPorts": 5
+		},
+		{
+			"id": 4,  
+			"demand": 0, 
+			"ip": "127.0.0.4",
+			"isHost": 0,
+			"numPorts": 5
+		},
+		{
+			"id": 5,  
+			"demand": 0, 
+			"ip": "127.0.0.5",
+			"isHost": 0,
+			"numPorts": 5
+		},
+		{
+			"id": 6,  
+			"demand": 0, 
+			"ip": "127.0.0.6",
+			"isHost": 0,
+			"numPorts": 5
+		},
+		{
+			"id": 7,  
+			"demand": 0, 
+			"ip": "10.0.3.10",
+			"isHost": 0,
+			"numPorts": 5
+		}, 
+		{
+			"id": 8,  
+			"demand": 0, 
+			"ip": "10.0.4.10",
+			"isHost": 0,
+			"numPorts": 5
+		}
+	], 
+	"links": 
+	[
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 0, 
+			"target": 2,
+			"porigem": 0,
+			"pdestino": 0
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 2, 
+			"target": 0,
+			"porigem": 0,
+			"pdestino": 0
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 1, 
+			"target": 2,
+			"porigem": 0,
+			"pdestino": 1
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 2, 
+			"target": 1,
+			"porigem": 1,
+			"pdestino": 0
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 2, 
+			"target": 3,
+			"porigem": 2,
+			"pdestino": 0
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 3, 
+			"target": 2,
+			"porigem": 0,
+			"pdestino": 2
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 2, 
+			"target": 4,
+			"porigem": 3,
+			"pdestino": 0
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 4, 
+			"target": 2,
+			"porigem": 0,
+			"pdestino": 3
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 2, 
+			"target": 5,
+			"porigem": 4,
+			"pdestino": 0
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 5, 
+			"target": 2,
+			"porigem": 0,
+			"pdestino": 4
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 3, 
+			"target": 6,
+			"porigem": 1,
+			"pdestino": 2
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 6, 
+			"target": 3,
+			"porigem": 2,
+			"pdestino": 0
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 4, 
+			"target": 6,
+			"porigem": 1,
+			"pdestino": 3
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 6, 
+			"target": 4,
+			"porigem": 3,
+			"pdestino": 1
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 5, 
+			"target": 6,
+			"porigem": 1,
+			"pdestino": 4
+		},
+		{
+			"capacity": 10, 
+			"current_capacity": 10, 
+			"weight": 1, 
+			"source": 6, 
+			"target": 5,
+			"porigem": 4,
+			"pdestino": 1
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 6, 
+			"target": 7,
+			"porigem": 0,
+			"pdestino": 0
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 7, 
+			"target": 6,
+			"porigem": 0,
+			"pdestino": 0
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 6, 
+			"target": 8,
+			"porigem": 1,
+			"pdestino": 0
+		},
+		{
+			"capacity": 100, 
+			"current_capacity": 100, 
+			"weight": 1, 
+			"source": 8, 
+			"target": 6,
+			"porigem": 0,
+			"pdestino": 1
+		} 
+		
+	]
+}

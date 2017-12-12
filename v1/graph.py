@@ -48,19 +48,19 @@ def createFlow(F, source, destiny, flow, flows, id):
 def destroyFlow(F, flows, id):
     template = env.get_template('delete_commands-template.txt')
     arq = open("util/delete_commands.txt", "w") 
-	if id in flows:
-		for i in flows[id]:
-			for j in flows[id][i]:
-                                currentCapacityij = F.edge[i][j]['current_capacity']
-                                currentCapacityji = F.edge[i][j]['current_capacity']
-                                F.edge[i][j]['current_capacity'] = currentCapacityij+flows[id][i][j]
-                                F.edge[j][i]['current_capacity'] = currentCapacityji+flows[id][i][j]
+    if id in flows:
+        for i in flows[id]:
+            for j in flows[id][i]:
+                currentCapacityij = F.edge[i][j]['current_capacity']
+                currentCapacityji = F.edge[i][j]['current_capacity']
+                F.edge[i][j]['current_capacity'] = currentCapacityij+flows[id][i][j]
+                F.edge[j][i]['current_capacity'] = currentCapacityji+flows[id][i][j]
         arq.write(template.render(handle=id))
         arq.close()
         del flows[id]		
-	else:
-		print("Invalid id")
-	return F, flows
+    else:
+        print("Invalid id")
+    return F, flows
 
 def listId(flows):
 	for key, value in flows.items():
@@ -79,12 +79,12 @@ while True:
                 flow=int(input('Insert flow: '))
                 F, flows = createFlow(F,source,destiny,flow, flows, count)
                 count=count+1
-                os.system("python tools/apply_commands.py")            
+                #os.system("python tools/apply_commands.py")            
         if option == 2:
                 print("---------- DESTROYING FLOW ----------")
                 id=int(input('Insert id: '))
                 F, flows = destroyFlow(F,flows, id)
-                os.system("python tools/apply_commands-delete.py")
+                #os.system("python tools/apply_commands-delete.py")
         if option == 3:
         	print("---------- LIST ----------")
         	listId(flows)
